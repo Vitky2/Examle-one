@@ -13,7 +13,7 @@ pipeline {
             steps {
 
                 echo 'check gitHub'
-                checkout([$class: 'GitSCM', branches: [[name: '*/master']], userRemoteConfigs: [[url: 'https://github.com/Vitky2/Examle-one']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/Vitky2/Examle-one']]])
 
             }
         }
