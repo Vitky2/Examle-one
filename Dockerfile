@@ -10,7 +10,7 @@ RUN pip install --upgrade pip
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-RUN pip install --no-cache-dir -r flask
+RUN pip install flask
 
 EXPOSE 8000
 
