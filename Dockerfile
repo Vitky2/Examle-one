@@ -8,9 +8,10 @@ COPY requirements.txt ./
 
 RUN pip install --upgrade pip  
 
-RUN pip install --no-cache-dir -r requirements.txt \
- flask
+RUN pip install --no-cache-dir -r requirements.txt
 
-EXPOSE 5000
+RUN pip install --no-cache-dir -r flask
+
+EXPOSE 8000
 
 CMD ["python", "APIcalc.py"]
