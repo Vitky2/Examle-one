@@ -42,6 +42,7 @@ pipeline {
     }
     post {
         always {
+            echo 'chek all'
             //sh "docker stop $(docker ps -q --filter ancestor=test)"
         }
         success {
