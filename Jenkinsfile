@@ -42,6 +42,9 @@ pipeline {
         }
     }
     post {
+        always {
+            echo '{ "status": "success", "buildNumber": ${BUILD_NUMBER} }' > result.json
+        }
         success {
             echo 'done :)'
         }
