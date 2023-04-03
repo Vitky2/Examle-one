@@ -35,16 +35,13 @@ pipeline {
 
                 echo 'testing'
                 sh 'sleep 60'
-                sh 'curl -d "num1=5&num2=10" -X POST http://localhost:8000/add'
+                sh 'curl -d "num1=5&num2=10" -X POST http://localhost:8000/add |jq '.' > rest.json'
                 sh 'docker stop $(docker ps -q --filter ancestor=test)' 
                 
             }
         }
     }
     post {
-        always {
-            echo '{ "status": "success", "buildNumber": ${BUILD_NUMBER} }' > result.json
-        }
         success {
             echo 'done :)'
         }
