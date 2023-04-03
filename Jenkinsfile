@@ -2,9 +2,23 @@ pipeline {
 
     agent any
 
+    triggers {
+        githubPush()
+    }
+
     stages {
 
-        stage('Build') {
+        stage('checkout') {
+
+            steps {
+
+                echo 'check gitHub'
+                checkout([$class: 'GitSCM', branches: [[name: '*/master']], userRemoteConfigs: [[url: 'https://github.com/Vitky2/Examle-one']]])
+
+            }
+        }
+
+        stage('build') {
 
             steps {
 
@@ -13,7 +27,7 @@ pipeline {
             }
         }
 
-        stage('Test') {
+        stage('test') {
 
             steps {
 
@@ -21,14 +35,10 @@ pipeline {
 
             }
         }
-
-        stage('Deploy') {
-
-            steps {
-
-                echo 'deploying'
-
-            }
+    }
+    post {
+        success {
+            echo 'done'
         }
     }
 }
