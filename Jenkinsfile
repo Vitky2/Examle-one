@@ -34,8 +34,8 @@ pipeline {
             steps {
 
                 echo 'testing'
-                //sh 'sleep 20'
-                //sh 'curl -d "num1=5&num2=10" -X POST http://localhost:8000/add'
+                sh 'sleep 20'
+                sh 'curl -d "num1=5&num2=10" -X POST http://localhost:8000/add'
 
             }
         }
