@@ -36,17 +36,17 @@ pipeline {
                 echo 'testing'
                 sh 'sleep 20'
                 sh 'curl -d "num1=5&num2=10" -X POST http://localhost:8000/add'
-
+                sh "docker stop $(docker ps -q --filter ancestor=test)" 
+                
             }
         }
     }
     post {
-        always {
-            echo 'chek all'
-            //sh "docker stop $(docker ps -q --filter ancestor=test)"
-        }
         success {
-            echo 'done'
+            echo 'done :)'
+        }
+        failure {
+            echo 'not done :('
         }
     }
 }
