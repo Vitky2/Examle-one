@@ -47,7 +47,7 @@ pipeline {
             steps {
 
                 echo 'sast runing'
-                sh 'docker run -it test:latest bandit -r APIcalc.py -t'
+                sh 'docker run test:latest bandit -r APIcalc.py -t'
                 
             }
         }
