@@ -41,12 +41,13 @@ pipeline {
                 
             }
         }
+
         stage('sast') {
             
             steps {
 
                 echo 'sast runing'
-                sh 'docker run -it test:latest bandit -r APIcalc.py'
+                sh 'docker run -it test:latest bandit -r APIcalc.py -t'
                 
             }
         }
